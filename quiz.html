@@ -13,27 +13,40 @@
 
 <body>
     <div class="main">
-        <div class="container">
-            <div class="screen">
-                Question will be posted here 
+        <!-- This start button is only for first time loading -->
+        
+        <!-- For showing loading while data is coming from api -->
+        <div class="loader hidden">Loading...</div>
+        <!-- A new big box for styling -->
+        <div class="bigContainer">
+            <!-- Hiding the whole box for first time loading -->
+            <div class="container hidden">
+                <div class="screen">
+                    Question will be posted here 
+                </div>
+                <div class="Bottom">
+                    <div class="options">
+                        <button class="btn">Option 1</button>
+                        <button class="btn">Option 2</button>
+                    </div>
+                    <div class="options">
+                        <button class="btn">Option 3</button>
+                        <button class="btn">Option 4</button>
+                    </div>
+                    <div class="foot"> 
+                        <button class="next">Next</button>
+                    </div>
+                
+                </div>
             </div>
-            <div class="Bottom">
-                <div class="part1">
-                    <button class="btn">Option 1</button>
-                    <button class="btn">Option 2</button>
-                </div>
-                <div class="part2">
-                    <button class="btn">Option 3</button>
-                    <button class="btn">Option 4</button>
-                </div>
-                <div class="foot"> 
-                     <button class="next">Next</button>
-                     <p class="p"></p>
-                     <p class="p2"></p>
-                </div>
-              
+            <!-- All the reset and result related html is here -->
+            <div class="resultArea">
+                <button class="startBtn">Start</button>
+                <p class="p"></p>
+                <p class="p2"></p>
             </div>
         </div>
+        
     </div>
 
 
