@@ -15,7 +15,6 @@ let bigBox = document.querySelector(".bigContainer")
 let nextBtn = document.querySelector(".next");
 // DOMParser is used for parsing encoded strings 
 const parser = new DOMParser();
-// console.log(screen)
 
 function fetchApi() {
     let a = "https://opentdb.com/api.php?amount=10&type=multiple";
@@ -59,7 +58,6 @@ function displayData() {
         });
 
         buttonsArr = buttonsArr.sort(() => Math.random() - 0.5); //Randomising the options in the buttons array
-        // har next pe khali kar do
         p.innerText = "";
         /* Loop statement to assign elements of array of buttons into the buttons of options and check the correct answer*/
         buttons.forEach((button, i) => {
@@ -98,34 +96,9 @@ function displayData() {
                     btn.style.pointerEvents = "none"
                 });
             };
-
-            button.disabled = false; //Resetting clicking property of button after click
         });
 
         console.log("Your Current Index is:", currentIndex);
-        
-        // ye gandi bakchodi kar rakhi thi yaha 🥲
-        // ye code else me jana tha
-        // if (currentIndex === quizData.results.length) {
-        //     p.style.display = "block";
-        //     p.innerText = "Game Over!";
-        //     p.style.color = "red"
-        //     p2.style.display = "block";
-        //     p2.innerText = `Your total score is ${score}`;
-        //     // this code is not needed anymore since we're using start button as try again button
-        //     // screen.innerText = " Question will be posted here";
-
-        //     // nextBtn.disabled = true;
-        //     // Disabling button after click
-        //     // buttons.forEach((btn, i) => {
-        //     //     btn.innerText = `Option ${i}`;
-        //     //     btn.disabled = true;
-        //     // });
-
-        //     tryAgain();
-        // }
-
-        // checkAnswer();
     } else {
         console.log("balle balle");
         p.style.display = "block";
@@ -133,15 +106,6 @@ function displayData() {
         p.style.color = "red"
         p2.style.display = "block";
         p2.innerText = `Your total score is ${score}`;
-        // this code is not needed anymore since we're using start button as try again button
-        // screen.innerText = " Question will be posted here";
-
-        // nextBtn.disabled = true;
-        // Disabling button after click
-        // buttons.forEach((btn, i) => {
-        //     btn.innerText = `Option ${i}`;
-        //     btn.disabled = true;
-        // });
 
         tryAgain();
     }
@@ -168,11 +132,6 @@ async function loadData() {
 
 // reused start button as try again button
 function tryAgain() {
-    // let a = document.createElement("button");
-    // a.className = "try";
-    // a.innerText = "Try again";
-    // foot.appendChild(a);
-
     currentIndex = 0;
     startButton.classList.remove("hidden");
     // hiding the container when game is over, so no need to disable anything
@@ -181,13 +140,6 @@ function tryAgain() {
     // removing styles dynamically
     bigBox.classList.remove("bigContainerAdj")
     resultArea.classList.remove("resultAreaAdj")
-    // a.addEventListener("click", () => {  
-    //     loadData();
-    //     p.style.display = "none";
-    //     p2.style.display = "none";
-    //     a.style.display = "none";
-    //     nextBtn.disabled = false;
-    // });
 }
 // event listener for start button
 startButton.addEventListener("click", () => {
@@ -203,7 +155,6 @@ startButton.addEventListener("click", () => {
 nextBtn.addEventListener("click", () => {
     buttons.forEach((btn) => {
         btn.disabled = false;
-        // khali kar denge!
         btn.style.backgroundColor = ""
         btn.style.color = ""
         btn.style.pointerEvents = ""
@@ -211,10 +162,3 @@ nextBtn.addEventListener("click", () => {
     currentIndex++;
     displayData();
 });
-
-// in line 41 why forEach loop was not working fine but map worked fine
-
-// after reloading data score was not getting displayed (correct and wrong answers) - didn't see it
-// randomising option was in effect after completion of quiz - solved
-// container should get disappeared when game gets finished only try again button should be there - solved
-// Encoding issue in qusetion and options - solved
